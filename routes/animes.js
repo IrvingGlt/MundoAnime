@@ -11,7 +11,11 @@ router.get('/', (req, res)=>{
         {
             Name: 'Kenichi',
             Genero: 'Artes Marciales'
-        }
+        },
+        {
+          Name: 'Super campeones',
+          Genero: 'Deportes'
+      }
     ])
 })
 

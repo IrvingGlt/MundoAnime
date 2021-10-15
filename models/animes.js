@@ -4,8 +4,8 @@ const animesSchema = new Schema({
     name: String,
     genre: String, 
     pDate: Date,
-    chapters: String,
-    status: {type: String, enum:['In broadcast','finished'], default:'coming soon'},
+    chapters: {type: Number},
+    status: {type: String, enum:['In broadcast','finished','coming soon'], default:'coming soon'},
     picture: {type: String, default: ''}
 },{
     timestamp:true

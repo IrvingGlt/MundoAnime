@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const animesSchema = new Schema({
+    idAnime: {type:Number, unique: true},
     name: String,
     genre: String, 
     pDate: Date,

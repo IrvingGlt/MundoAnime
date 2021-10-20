@@ -2,7 +2,7 @@ const routerApi = require('./routes')
 const express = require('express')
 const app = express()
 const { config } = require('./config/index')
-
+const { checkApiKey } = require('./middleware/auth.handler')
 const port = config.port
 
 const mongoose = require ('mongoose')
@@ -15,11 +15,16 @@ console.log ('********************')
 console.log(MONGO_URI)
 mongoose.connect(MONGO_URI,
   {useNewUrlParser: true, useUnifiedTopology: true}
-  ).then (()=> console.log('Ya estamos conectados')).catch(e=>console.log(e))
+  ).then (()=> console.log('Servidor Conectado')).catch(e=>console.log(e))
 
 app.get('/', (req, res)=>{
     res.send('Hola! Bienvenido a MundoAnime')
 })
+
+app.get('/producto', checkApiKey, (req, res)=>{
+  res.send('Sesion Iniciada')
+})
+
 
 
 routerApi(app)

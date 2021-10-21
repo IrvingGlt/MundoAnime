@@ -21,4 +21,4 @@ const LocalStrategy = new Strategy(
     }
 )
 
-module.export = LocalStrategy
+module.exports = LocalStrategy

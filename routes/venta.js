@@ -1,8 +1,11 @@
 const express = require('express')
+const passport = require('passport')
 const router = express.Router()
 const Venta = require('../models/venta')
 
-router.get('/', (req, res)=>{
+router.get('/',
+passport.authenticate('jwt', {session:false}),
+(req, res)=>{
     try{
         res.json({
           status:'pagado' ,

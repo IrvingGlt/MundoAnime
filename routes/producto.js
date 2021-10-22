@@ -3,7 +3,9 @@ const passport = require('passport')
 const router = express.Router()
 const Producto = require('../models/producto')
 
-router.get('/', (req, res)=>{
+router.get('/', 
+passport.authenticate('jwt', {session:false}),
+(req, res)=>{
     try{
         res.json([{
           id: '1',
@@ -15,7 +17,6 @@ router.get('/', (req, res)=>{
           name: 'Figura de ZeroTwo',
           price: 10000,
           stock: 3
-
           }
         ])
     }catch(error){

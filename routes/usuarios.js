@@ -1,9 +1,13 @@
 const express = require('express')
+const passport = require('passport')
 const router = express.Router()
 const Usuarios = require('../models/usuarios')
-router.get('/', (req, res)=>{
+router.get('/', 
+passport.authenticate('jwt', {session:false}),
+(req, res)=>{
     try{
         res.json({
+        idUsuario: 1,
         name: 'Irving',
         lastName: 'Lopez',
         phone: '9212460264',

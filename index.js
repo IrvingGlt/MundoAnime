@@ -4,9 +4,9 @@ const app = express()
 const { config } = require('./config/index')
 const { checkApiKey } = require('./middleware/auth.handler')
 const passport = require('passport')
-const port = config.port
 
 app.use(passport.initialize())
+const port = config.port
 
 const mongoose = require ('mongoose')
 const USER = encodeURIComponent(config.dbUser)

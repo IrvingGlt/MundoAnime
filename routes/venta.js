@@ -1,44 +1,21 @@
 const express = require('express')
 const passport = require('passport')
+const { ctrlSelectVenta } = require('../controllers/venta/ctrSelectVenta')
 const router = express.Router()
-const Venta = require('../models/venta')
+
 
 router.get('/',
 passport.authenticate('jwt', {session:false}),
-(req, res)=>{
-    try{
-        res.json([{
-          status:'pagado' ,
-          idVenta: 1,
-          totalPrice: 10000,
-          idUsuario: 1,
-          idProducto: '2',
-    },
-                        {
-        status:'pagado' ,
-        idVenta: 2,
-        totalPrice: 5000,
-        idUsuario: 1,
-        idProducto: '2',
-                        }
-                ])
-    }catch(error){
-        console.log(`Error: ${error}`)
-    }
-})
+ctrlSelectVenta
+)
 
-router.get('/filter', 
+router.put('/',
 passport.authenticate('jwt', {session:false}),
-(req, res)=>{
-    res.json(
-        {
-        status:'pagado' ,
-        idVenta: 1,
-        totalPrice: 10000,
-        idUsuario: 1,
-        idProducto: '2',
-        }
-              )
-})
+
+)
+
+router.delete('/',
+passport.authenticate('jwt', {session:false}),
+)
 
 module.exports = router

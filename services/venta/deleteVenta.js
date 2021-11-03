@@ -4,9 +4,9 @@ const { config } = require('../../config/index')
 async function deleteVenta(){
   try { 
 
-    const anime = await Ventas.deleteOne({_id:config.dbIdMundoAnime})
+    const ventas = await Ventas.deleteOne({_id:config.dbIdMundoAnime})
 
-return anime
+return ventas
 } catch(error){
   return {message: error.message}
 }

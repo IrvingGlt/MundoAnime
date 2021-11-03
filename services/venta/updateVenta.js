@@ -5,7 +5,7 @@ async function updateVenta(){
   try {
   
 
-const venta = await Ventas.updateOne({_id:config.dbIdMundoAnime},
+const ventas = await Ventas.updateOne({_id:config.dbIdMundoAnime},
   {
     $set:{
       totalPrice: 2500,
@@ -13,7 +13,7 @@ const venta = await Ventas.updateOne({_id:config.dbIdMundoAnime},
     }
   })
 
-return venta
+return ventas
 } catch(error){
   return {message: error.message}
 }

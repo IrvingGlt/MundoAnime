@@ -9,7 +9,8 @@ const config = {
   dbHost: process.env.DB_HOST,
   dbName: process.env.DB_NAME,
   dbApiPassword: process.env.DB_APIPASS,
-  dbTokenPass: process.env.DB_TOKENPASS
+  dbTokenPass: process.env.DB_TOKENPASS,
+  dbIdMundoAnime: process.env.id_MundoAnime
 }
 
 module.exports = {config}

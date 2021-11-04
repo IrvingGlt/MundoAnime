@@ -1,6 +1,7 @@
 const express = require('express')
 const passport = require('passport')
-const { ctrlDeleteProducto } = require('../controllers/producto/ctrlDeleteProducto.Js')
+const { ctrlCreateProducto } = require('../controllers/producto/ctrlCreateProducto')
+const { ctrlDeleteProducto } = require('../controllers/producto/ctrlDeleteProducto')
 const { ctrlSelectProductos } = require('../controllers/producto/ctrlSelectProducto')
 const { ctrlUpdateProducto } = require('../controllers/producto/ctrlUpdateProducto')
 const router = express.Router()
@@ -11,12 +12,17 @@ passport.authenticate('jwt', {session:false}),
 ctrlSelectProductos
 )
 
-router.put('/update',
+router.put('/:_id',
 passport.authenticate('jwt', {session:false}),
 ctrlUpdateProducto
 )
 
-router.delete('/delete',
+router.post('/',
+passport.authenticate('jwt', {session:false}),
+ctrlCreateProducto
+)
+
+router.delete('/:_id',
 passport.authenticate('jwt', {session:false}),
 ctrlDeleteProducto
 )

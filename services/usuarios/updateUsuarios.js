@@ -1,19 +1,16 @@
 const Usuarios = require('../../models/usuarios')
-const { config } = require('../../config/index')
 
-async function updateUsuarios(){
+async function updateUsuarios({name, lastName, email}){
   try {
-
-
-const usuarios = await Usuarios.updateOne({_id:config.dbIdMundoAnime},
-  {
-    $set:{
-      phone: 9212346789,
-      direccion: 'Cerrada de limonaria'
-    }
-  })
-
-return usuarios
+    console.log('Hola desde el servicio')
+    console.log(email)
+    const usuariosUpdated = await Usuarios.findOneAndUpdate(
+      {email},
+      {name,lastName},
+      {new: true}
+    )
+console.log(usuariosUpdated)
+return usuariosUpdated
 } catch(error){
   return {message: error.message}
 }

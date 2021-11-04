@@ -1,22 +1,20 @@
 const Producto = require('../../models/producto')
-const { config } = require('../../config/index')
 
-async function updateProducto(){
+async function updateProducto({_id,price, stock }){
   try {
-
-
-const producto = await Producto.updateOne({_id:config.dbIdMundoAnime},
-  {
-    $set:{
-      name: 'Funda de naruto',
-      stock: 3
-    }
-  })
-
-return producto
+    console.log('Hola desde el servicio')
+    console.log(_id)
+    const productoUpdated = await Producto.findOneAndUpdate(
+      {_id},
+      {price,stock},
+      {new: true}
+    )
+console.log(productoUpdated)
+return productoUpdated
 } catch(error){
   return {message: error.message}
 }
 }
 
 module.exports = {updateProducto}
+

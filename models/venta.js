@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const ventaSchema = new Schema({
-  idVenta: {type:Number},
   totalPrice: {type:Number},
   idUser: {type:Number, unique:true},
   idProduct: {required: true, type: String, unique: true}

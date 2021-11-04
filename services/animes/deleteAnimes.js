@@ -1,12 +1,12 @@
 const Animes = require('../../models/animes')
-const { config } = require('../../config/index')
 
-async function deleteAnimes(){
-  try { 
-
-    const anime = await Animes.deleteOne({_id:config.dbIdMundoAnime})
-
-return anime
+async function deleteAnimes(_id){
+  try {
+    const animeDeleted = await Animes.deleteOne( {_id})
+console.log(animeDeleted)
+if (animeDeleted.deletedCount == 0)
+return {usuariosDeleted: animeDeleted.deletedCount, message:'Anime no encontrado'}
+else return {usuariosDeleted: animeDeleted.deletedCount, message: 'Anime eliminado'}
 } catch(error){
   return {message: error.message}
 }

@@ -1,19 +1,15 @@
 const Ventas = require('../../models/venta')
-const { config } = require('../../config/index')
 
-async function updateVenta(){
+async function updateVenta({_id,totalPrice}){
   try {
-  
-
-const ventas = await Ventas.updateOne({_id:config.dbIdMundoAnime},
-  {
-    $set:{
-      totalPrice: 2500,
-      idProduct: 2
-    }
-  })
-
-return ventas
+    console.log(_id)
+    const ventaUpdated = await Ventas.findOneAndUpdate(
+      {_id},
+      {totalPrice},
+      {new: true}
+    )
+console.log(ventaUpdated)
+return ventaUpdated
 } catch(error){
   return {message: error.message}
 }

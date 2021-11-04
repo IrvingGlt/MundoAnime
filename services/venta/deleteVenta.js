@@ -1,12 +1,12 @@
 const Ventas = require('../../models/venta')
-const { config } = require('../../config/index')
 
-async function deleteVenta(){
-  try { 
-
-    const ventas = await Ventas.deleteOne({_id:config.dbIdMundoAnime})
-
-return ventas
+async function deleteVenta(_id){
+  try {
+    const ventaDeleted = await Ventas.deleteOne( {_id})
+console.log(ventaDeleted)
+if (ventaDeleted.deletedCount == 0)
+return {usuariosDeleted: ventaDeleted.deletedCount, message:'Venta no encontrada'}
+else return {usuariosDeleted: ventaDeleted.deletedCount, message: 'Venta eliminada'}
 } catch(error){
   return {message: error.message}
 }

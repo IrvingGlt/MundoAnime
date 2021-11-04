@@ -1,19 +1,16 @@
 const Animes = require('../../models/animes')
-const { config } = require('../../config/index')
 
-async function updateAnimes(){
+async function updateAnimes({_id,name, genre}){
   try {
-  
-
-const anime = await Animes.updateOne({_id:config.dbIdMundoAnime},
-  {
-    $set:{
-      name: 'Mushoku Tensei',
-      genre: 'Isekai'      
-    }
-  })
-
-return anime
+    console.log('Hola desde el servicio')
+    console.log(_id)
+    const animeUpdated = await Animes.findOneAndUpdate(
+      {_id},
+      {name,genre},
+      {new: true}
+    )
+console.log(animeUpdated)
+return animeUpdated
 } catch(error){
   return {message: error.message}
 }

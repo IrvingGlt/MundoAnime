@@ -6,7 +6,7 @@ async function ctrlCreateVenta(req, res){
   var sinIva = Math.round(totalPrice / 1.16)
   var ivaTotalPrice = totalPrice - sinIva
   const ventax = await createVenta({totalPrice, idUser, idProduct})
-  return res.status(200).send({ventax,message: `El precio del producto sin IVA es: $${sinIva}, El IVA del producto es: $${ivaTotalPrice}, El precio total del producto es: $${totalPrice}`})
+  return res.status(200).send({ventax,message: `El precio de la venta sin IVA es: $${sinIva}, El IVA de la venta es: $${ivaTotalPrice}, El precio total de la venta es: $${totalPrice}`})
   
 } catch(error){
   return res.status(error.status || 500).send({message: error.message})

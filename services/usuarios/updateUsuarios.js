@@ -1,12 +1,12 @@
 const Usuarios = require('../../models/usuarios')
 
-async function updateUsuarios({name, lastName, email}){
+async function updateUsuarios({name, lastName,phone, email,password}){
   try {
     console.log('Hola desde el servicio')
     console.log(email)
     const usuariosUpdated = await Usuarios.findOneAndUpdate(
       {email},
-      {name,lastName},
+      {name,phone,lastName,password},
       {new: true}
     )
 console.log(usuariosUpdated)

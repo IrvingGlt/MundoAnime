@@ -8,7 +8,7 @@
     ],
     "routes":[
         {"src": "/(.*)","dest": "/"},
-        {"src": "./routes/index.js", "dest": "/"}
+        {"src": "./routes/index.js", "dest": "/"},
         {"src": "./routes/auth.js", "dest": "/"}
 ]
 }

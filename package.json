@@ -3,12 +3,10 @@
   "version": "1.0.0",
   "description": "Mundo Anime",
   "main": "index.js",
-  
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-     "lint": "eslint"
-    
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",

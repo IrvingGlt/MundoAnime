@@ -1,11 +1,11 @@
-const routerApi = require('./routes')
+//const routerApi = require('./routes')
 const express = require('express')
 const app = express()
 const { config } = require('./config/index')
 const { checkApiKey } = require('./middleware/auth.handler')
 const passport = require('passport')
 
-/*app.use(passport.initialize())
+app.use(passport.initialize())
 const port = process.env.PORT || 4000
 
 const mongoose = require ('mongoose')
@@ -21,7 +21,7 @@ mongoose.connect(MONGO_URI,
   ).then (()=> console.log('Servidor Conectado')).catch(e=>console.log(e))
 
 require('./utils/auth')
-*/
+
 app.get('/', (req, res)=>{
     res.send('Hola! Bienvenido a MundoAnime')
 })
@@ -29,7 +29,7 @@ app.get('/', (req, res)=>{
 
 
 
-routerApi(app)
+//routerApi(app)
 
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`)

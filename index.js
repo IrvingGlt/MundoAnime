@@ -6,7 +6,7 @@ const { checkApiKey } = require('./middleware/auth.handler')
 const passport = require('passport')
 
 app.use(passport.initialize())
-const port = config.port
+const port = process.env.PORT || 4000;
 
 const mongoose = require ('mongoose')
 const USER = encodeURIComponent(config.dbUser)

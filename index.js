@@ -6,7 +6,7 @@ const { checkApiKey } = require('./middleware/auth.handler')
 const passport = require('passport')
 
 app.use(passport.initialize())
-const port = config.port
+const port = process.env.PORT || 4000
 
 const mongoose = require ('mongoose')
 const USER = encodeURIComponent(config.dbUser)
@@ -22,7 +22,7 @@ mongoose.connect(MONGO_URI,
 
 require('./utils/auth')
 
-app.get('/', (req, res)=>{
+/*app.get('/', (req, res)=>{
     res.send('Hola! Bienvenido a MundoAnime')
 })
 
@@ -34,3 +34,7 @@ routerApi(app)
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`)
 })
+*/
+app.listen(port);
+
+console.log(`Listen on port ${port}`)

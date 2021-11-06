@@ -1,4 +1,4 @@
-const routerApi = require('./routes')
+//const routerApi = require('./routes')
 const express = require('express')
 const app = express()
 const { config } = require('./config/index')
@@ -29,7 +29,7 @@ app.get('/', (req, res)=>{
 
 
 
-routerApi(app)
+//routerApi(app)
 
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`)

@@ -22,7 +22,7 @@ mongoose.connect(MONGO_URI,
 
 require('./utils/auth')
 
-app.get('/', (req, res)=>{
+app.get('/',checkApiKey, (req, res)=>{
     res.send('Hola! Bienvenido a MundoAnime')
 })
 

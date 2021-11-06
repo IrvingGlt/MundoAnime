@@ -4,9 +4,9 @@ const app = express()
 const { config } = require('./config/index')
 const { checkApiKey } = require('./middleware/auth.handler')
 const passport = require('passport')
-
-app.use(passport.initialize())
 const port = process.env.PORT || 4000
+/*app.use(passport.initialize())
+
 
 const mongoose = require ('mongoose')
 const USER = encodeURIComponent(config.dbUser)
@@ -22,7 +22,7 @@ mongoose.connect(MONGO_URI,
 
 require('./utils/auth')
 
-/*app.get('/', (req, res)=>{
+app.get('/', (req, res)=>{
     res.send('Hola! Bienvenido a MundoAnime')
 })
 

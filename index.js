@@ -1,6 +1,5 @@
-//const routerApi = require('./routes')
+const routerApi = require('./routes')
 const express = require('express')
-const indexR = require("./routes/index")
 const app = express()
 const { config } = require('./config/index')
 const { checkApiKey } = require('./middleware/auth.handler')
@@ -28,9 +27,9 @@ app.get('/', (req, res)=>{
 })
 
 
-app.use("./routes/index.js",indexR)
 
-//routerApi(app)
+
+routerApi(app)
 
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`)
